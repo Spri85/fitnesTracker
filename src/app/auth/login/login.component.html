@@ -11,6 +11,7 @@
       <mat-hint>Should be at least 6 charecters</mat-hint>
     </mat-form-field>
 
-    <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
+    <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
   </form>
 </section>
