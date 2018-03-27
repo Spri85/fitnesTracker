@@ -8,6 +8,8 @@ import { TrainingComponent } from './training.component';
 import { StopTrainingComponent } from './current-training/stop-training.component';
 import { TrainingRoutingModule } from './training-routing.module';
 import { AuthGuard } from '../auth/auth.guard';
+import { StoreModule } from '@ngrx/store';
+import { trainingReducer } from './training.reducer';
 
 @NgModule({
     declarations: [
@@ -19,7 +21,8 @@ import { AuthGuard } from '../auth/auth.guard';
     ],
     imports: [ 
         SharedModule,
-        TrainingRoutingModule
+        TrainingRoutingModule,
+        StoreModule.forFeature('training', trainingReducer)
      ],
     exports: [],
     providers: [],

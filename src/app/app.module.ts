@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import{ StoreModule } from '@ngrx/store';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,7 @@ import { UIService } from './shared/ui.service';
 import { TrainingService } from './training/training.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AuthGuard } from './auth/auth.guard';
+import { reducers } from './app.reducer';
 
 
 
@@ -34,7 +36,8 @@ import { AuthGuard } from './auth/auth.guard';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AuthModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forRoot(reducers)
   ],
   providers: [AuthService, TrainingService, UIService, AuthGuard],
   bootstrap: [AppComponent],
